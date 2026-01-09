@@ -1,0 +1,118 @@
+{
+  "models": [
+    {
+      "name": "Chat - Llama3.2",
+      "provider": "ollama",
+      "model": "llama3.2",
+      "systemMessage": "Always reply with two sections: 1) Thinking: brief explanation. 2) Result: final answer."
+    },
+    {
+      "name": "Chat - Mistral Small",
+      "provider": "ollama",
+      "model": "mistral-small",
+      "systemMessage": "Always reply with two sections: 1) Thinking: brief explanation. 2) Result: final answer."
+    },
+    {
+      "name": "Reasoning - Qwen3",
+      "provider": "ollama",
+      "model": "qwen3",
+      "systemMessage": "Deep reasoning and math. Always reply with: Thinking then Result."
+    },
+    {
+      "name": "Code - DeepSeek Coder V2",
+      "provider": "ollama",
+      "model": "deepseek-coder-v2",
+      "systemMessage": "You are a senior debugging and teaching assistant.\nAlways reply in TWO sections:\n\nThinking\n- Understanding: briefly restate the user intent.\n- What I inspected: mention files, functions, or queries you focused on.\n- Issues found: list what is wrong, why it is wrong, and where it appears.\n- Fix plan: describe the steps you will take, noting trade-offs and assumptions.\n- Verification: suggest tests, console logs, or queries to confirm the fix.\n- Uncertainty: highlight anything you are unsure about and how to double-check.\n\nResult\n- Provide the fixed or improved code/SQL/config (minimize comments).\n- If there are multiple options, choose one and briefly label it."
+    },
+    {
+      "name": "Code - Qwen3 Coder",
+      "provider": "ollama",
+      "model": "qwen3-coder",
+      "systemMessage": "You are a senior debugging and teaching assistant.\nAlways reply in TWO sections:\n\nThinking\n- Understanding: briefly restate the user intent.\n- What I inspected: mention files, functions, or queries you focused on.\n- Issues found: list what is wrong, why it is wrong, and where it appears.\n- Fix plan: describe the steps you will take, noting trade-offs and assumptions.\n- Verification: suggest tests, console logs, or queries to confirm the fix.\n- Uncertainty: highlight anything you are unsure about and how to double-check.\n\nResult\n- Provide the fixed or improved code/SQL/config (minimize comments).\n- If there are multiple options, choose one and briefly label it."
+    },
+    {
+      "name": "Vision - LLaVA Llama3",
+      "provider": "ollama",
+      "model": "llava-llama3",
+      "capabilities": ["image_input"],
+      "systemMessage": "Image analysis. Always reply with: Thinking (what you see / how you analyze) then Result (description and insights)."
+    },
+    {
+      "name": "Fast – Gemma 2B",
+      "provider": "ollama",
+      "model": "gemma:2b",
+      "systemMessage": "Fast simple Q&A. Always reply with: Thinking then Result."
+    },
+    {
+      "name": "Boss - DeepSeek R1",
+      "provider": "ollama",
+      "model": "deepseek-r1",
+      "systemMessage": "Hard tasks only. Always reply with: Thinking (plan and key reasoning) then Result (detailed answer)."
+    }
+  ],
+  "tabAutocompleteModel": {
+    "name": "Autocomplete - DeepSeek Coder",
+    "provider": "ollama",
+    "model": "deepseek-coder-v2"
+  },
+  "media": {
+    "image": {
+      "provider": "a1111",
+      "url": "http://127.0.0.1:7860",
+      "width": 1024,
+      "height": 1024,
+      "steps": 20,
+      "cfgScale": 7,
+      "sampler": "Euler a"
+    },
+    "video": {
+      "ffmpegPath": "ffmpeg",
+      "width": 1280,
+      "height": 720,
+      "seconds": 10,
+      "fps": 24
+    }
+  },
+  "tools": {
+    "enabled": true,
+    "pythonPath": "python",
+    "sqliteDbPath": "data/app.db",
+    "safeMode": true,
+    "maxChars": 12000,
+    "nodePath": "node",
+    "jsSafeMode": true,
+    "jsTimeoutMs": 2000,
+    "sqliteReadOnly": true
+  },
+  "embeddings": {
+    "enabled": true,
+    "model": "bge-m3",
+    "chunkSize": 1000,
+    "chunkOverlap": 200,
+    "topK": 5
+  },
+  "memory": {
+    "ttlDays": 30,
+    "embeddingWeight": 2
+  },
+  "web": {
+    "enabled": true,
+    "maxResults": 10,
+    "maxPageChars": 5000,
+    "searchEngine": "searxng",
+    "searxngUrl": "http://localhost:8080",
+    "cacheResults": true,
+    "cacheTtlMinutes": 60
+  },
+  "quality": {
+    "enabled": true,
+    "minLength": 120,
+    "maxRetries": 1,
+    "qcModel": "gemma:2b"
+  },
+  "routing": {
+    "fastPromptChars": 80,
+    "rewriteEnabled": false,
+    "rewriteModel": "gemma:2b"
+  }
+}

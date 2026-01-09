@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    ports:
+      - "8080:8080"
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8080/
+      - SEARXNG_SECRET_KEY=change-this-secret
+    volumes:
+      - searxng-data:/etc/searxng
+    restart: unless-stopped
+
+volumes:
+  searxng-data:
